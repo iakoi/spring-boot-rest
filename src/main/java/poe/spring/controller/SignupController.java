@@ -37,8 +37,8 @@ public class SignupController {
 					   BindingResult bindingResult,
 					   RedirectAttributes attr,
 					   Model model) {
-		
-		log.info("login: {0}, password: {1}", form.getLogin(), form.getPassword());
+
+		log.info("ajout d'un utilisateur login: {0}", form.getLogin());
 
 		if (bindingResult.hasErrors()) {
 			return "signup";

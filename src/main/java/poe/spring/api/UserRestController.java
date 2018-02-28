@@ -33,7 +33,6 @@ public class UserRestController {
 		} catch (DuplicateLoginBusinessException e) {
 			response.setStatus(HttpServletResponse.SC_CONFLICT);
 		}
-		System.out.println("user id : " + savedUser);
 		return savedUser;
 	}
 
