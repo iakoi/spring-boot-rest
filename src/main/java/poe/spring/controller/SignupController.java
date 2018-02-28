@@ -1,5 +1,7 @@
 package poe.spring.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ import javax.validation.Valid;
 @RequestMapping("/signup")
 public class SignupController {
 
+	private static Logger log = LoggerFactory.getLogger(SignupController.class);
+
+
 	@Autowired
 	UserManagerService userManagerService;
 
@@ -32,13 +37,13 @@ public class SignupController {
 					   BindingResult bindingResult,
 					   RedirectAttributes attr,
 					   Model model) {
-
-		System.out.println("login " + form.getLogin());
-		System.out.println("password " + form.getPassword());
+		
+		log.info("login: {0}, password: {1}", form.getLogin(), form.getPassword());
 
 		if (bindingResult.hasErrors()) {
 			return "signup";
 		}
+
 
 		try {
 			userManagerService.signup(form.getLogin(), form.getPassword());

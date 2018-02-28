@@ -1,5 +1,7 @@
 package poe.spring.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import poe.spring.annotation.Chrono;
@@ -10,6 +12,9 @@ import poe.spring.repository.UserRepository;
 @Service
 @Chrono
 public class UserManagerService {
+
+	private static Logger log = LoggerFactory.getLogger(UserManagerService.class);
+
 
 	@Autowired
 	private UserRepository userRepository;
@@ -28,8 +33,4 @@ public class UserManagerService {
 		return user;
 	}
 
-
-	public void foo() {
-		System.out.println("bar");
-	}
 }

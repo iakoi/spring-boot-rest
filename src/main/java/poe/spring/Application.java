@@ -1,23 +1,23 @@
 package poe.spring;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Application {
 
+	private static Logger log = LoggerFactory.getLogger(Application.class);
+
 	public static void main(String[] args) {
-		String toPrint = "";
-		for (int i = 1; i <= 100; i++) {
-			if (i % 3 == 0) {
-				toPrint += "Fizz";
-			}
-			if (i % 5 == 0) {
-				toPrint += "Buzz";
-			}
-			System.out.println(toPrint.isEmpty() ? i : toPrint);
-			toPrint = "";
-		}
+		log.info("Démarrage de l'application");
+		log.trace("trace log");
+		log.debug("debug log");
+		log.info("info log");
+		log.warn("warn log");
+		log.error("error log");
+
 		SpringApplication.run(Application.class, args);
 	}
 }

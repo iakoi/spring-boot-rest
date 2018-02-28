@@ -1,7 +1,10 @@
 package poe.spring.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import poe.spring.Application;
 import poe.spring.domain.User;
 import poe.spring.exception.DuplicateLoginBusinessException;
 import poe.spring.repository.UserRepository;
@@ -12,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/api/user")
 public class UserRestController {
+
+	private static Logger log = LoggerFactory.getLogger(UserRestController.class);
+
 
 	@Autowired
 	private UserManagerService userManagerService;
