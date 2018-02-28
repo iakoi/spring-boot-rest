@@ -19,13 +19,11 @@ public class UserManagerService {
 
 	private static Logger log = LoggerFactory.getLogger(UserManagerService.class);
 
-
 	@Autowired
 	private UserRepository userRepository;
 
 	@Autowired
 	private InMemoryUserDetailsManager inMemoryUserDetailsManager;
-
 
 	public User signup(String login, String password) throws DuplicateLoginBusinessException {
 		User user = null;
@@ -43,5 +41,4 @@ public class UserManagerService {
 		}
 		return user;
 	}
-
 }
